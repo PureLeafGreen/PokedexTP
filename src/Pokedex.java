@@ -16,7 +16,13 @@ public class Pokedex {
     }
 
     public Pokemon rechercher(int numero) {
-        return pokemons[numero];
+        if (pokemons[numero] == null ) {
+            return null;
+        }
+        else if (pokemons[numero].getNumero() == numero) {
+            return pokemons[numero];
+        }
+        return null;
     }
 
     public Pokemon ajouter(String nom, int numero, String type1, String type2) {

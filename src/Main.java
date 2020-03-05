@@ -67,10 +67,16 @@ public class Main {
                     break;
 
                 case 'e':
+                    System.out.print("Entrez son numero: ");
                     numero = scan.nextInt();
                     p = dex.rechercher(numero);
                     System.out.print(p.getNom() + " evolue en ");
-                    System.out.println(p.getEvolution().getNom());
+                    if (p.getEvolution() == null ) {
+                        System.out.println("???");
+                    }
+                    else {
+                        System.out.println(p.getEvolution().getNom());
+                    }
                     break;
 
                 case 'q':
