@@ -5,6 +5,7 @@ public class Pokemon {
     private int numero;
     private int type1, type2;
     private Pokemon evolution;
+    private Pokemon Nexte;
 
     public Pokemon(String nom, int numero, int type1, int type2) {
         this.nom = nom;
@@ -12,6 +13,7 @@ public class Pokemon {
         this.type1 = type1;
         this.type2 = type2;
         this.evolution = null;
+        this.Nexte = null;
     }
 
     public Pokemon(String nom, int numero, int type1) {
@@ -28,6 +30,14 @@ public class Pokemon {
 
     public Pokemon getEvolution() {
         return evolution;
+    }
+
+    public Pokemon getNexte() {
+        return Nexte;
+    }
+
+    public void setNexte(Pokemon next) {
+        this.Nexte = next;
     }
 
     public void setEvolution(Pokemon evolution) {

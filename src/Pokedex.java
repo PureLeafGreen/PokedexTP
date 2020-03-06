@@ -1,38 +1,66 @@
 import java.io.PrintStream;
 
 public class Pokedex {
-    private Pokemon[] pokemons;
+    private Pokemon fPokemons;
+    private Pokemon lPokemons;
+    private Pokemon courant;
+    private int longeur;
 
     public Pokedex() {
-        this.pokemons = new Pokemon[151 + 1]; // Il n'y a que 151 pokemons, non?
-        //ajouter("MissingNo", 0, TableType.SANS_TYPE);
+        fPokemons = null;
+        lPokemons = null;
+        courant = null;
+        longeur = 0;
     }
 
     public void afficher(PrintStream out) {
-        for (Pokemon p : pokemons) {
-            if (p != null)
-                out.println("#" + p.getNumero() + " " + p.getNom());
+        if (fPokemons == null) {
+            System.out.println("Pokedex vide");
         }
+        courant = fPokemons;
+        while (courant != null) {
+            System.out.println(courant.toString() + "");
+            courant = courant.getNexte();
+        }
+
     }
 
     public Pokemon rechercher(int numero) {
-        if (pokemons[numero] == null ) {
+        if (fPokemons == null ) {
             return null;
         }
-        else if (pokemons[numero].getNumero() == numero) {
-            return pokemons[numero];
+        else {
+            courant = fPokemons;
+            while (courant != null) {
+                if (courant.getNumero() == numero) {
+                    return courant;
+                }
+                else {
+                    courant = courant.getNexte();
+                }
+            }
         }
         return null;
     }
 
     public Pokemon ajouter(String nom, int numero, String type1, String type2) {
         Pokemon p = rechercher(numero);
-        if (p != null)
+        if (p != null) {
             return null; // Erreur: Pokemon deja ajoute (on conserve celui existant).
-
+        }
         p = new Pokemon(nom, numero, TableType.getType(type1), TableType.getType(type2));
-        pokemons[numero] = p;
-        return p;
+        if (fPokemons == null) {
+            fPokemons = p;
+            lPokemons = p;
+            longeur++;
+            return fPokemons;
+        }
+        else {
+            lPokemons.setNexte(p);
+            lPokemons = p;
+            longeur++;
+            return lPokemons;
+        }
     }
 
     public Pokemon ajouter(String nom, int numero, String type1) {
