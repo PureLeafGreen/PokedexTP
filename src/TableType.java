@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class TableType {
+public class aTableType {
     public final static String SANS_TYPE = "<inconnu>";
     private final static String[] NOMS_TYPES = { SANS_TYPE,     // Type 0
             "combat", "dragon", "eau", "electrique", "feu",     // Types 1 a 5

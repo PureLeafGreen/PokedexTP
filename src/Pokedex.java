@@ -56,10 +56,32 @@ public class Pokedex {
             return fPokemons;
         }
         else {
-            lPokemons.setNexte(p);
-            lPokemons = p;
-            longeur++;
-            return lPokemons;
+            courant = fPokemons;
+            Pokemon memoire = courant.getNexte();
+            if (memoire == null) {
+                courant.setNexte(p);
+                lPokemons = p;
+                return lPokemons;
+            }
+            else {
+                while (courant.getNexte() != null) {
+                    memoire = courant.getNexte();
+                    if (lPokemons.getNumero() < p.getNumero() || courant.getNexte() == null) {
+                        lPokemons.setNexte(p);
+                        lPokemons = p;
+                        return lPokemons;
+                    }
+                    if (courant.getNumero() < p.getNumero() && memoire.getNumero() > p.getNumero()) {
+                        courant.setNexte(p);
+                        p.setNexte(memoire);
+                        return p;
+                    }
+                    else {
+                        courant = courant.getNexte();
+                    }
+                }
+                return p;
+            }
         }
     }
 
