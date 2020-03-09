@@ -40,6 +40,14 @@ public class Pokemon {
         this.Nexte = next;
     }
 
+    public String getType1() {
+        return TableType.getType(type1);
+    }
+
+    public String getType2() {
+        return TableType.getType(type2);
+    }
+
     public void setEvolution(Pokemon evolution) {
         this.evolution = evolution;
     }

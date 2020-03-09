@@ -25,6 +25,22 @@ public class Pokedex {
 
     }
 
+    public void afficherType(String type) {
+        if (fPokemons == null) {
+            System.out.println("Aucun pokemons dans le pokedex");
+        }
+        courant = fPokemons;
+        while (courant != null) {
+            if (courant.getType1().equals(type) || courant.getType2().equals(type)) {
+                System.out.println(courant.toString() + "");
+                courant = courant.getNexte();
+            }
+            else {
+                courant = courant.getNexte();
+            }
+        }
+    }
+
     public Pokemon rechercher(int numero) {
         if (fPokemons == null ) {
             return null;
@@ -33,6 +49,24 @@ public class Pokedex {
             courant = fPokemons;
             while (courant != null) {
                 if (courant.getNumero() == numero) {
+                    return courant;
+                }
+                else {
+                    courant = courant.getNexte();
+                }
+            }
+        }
+        return null;
+    }
+
+    public Pokemon rechercherNom(String nom) {
+        if (fPokemons == null) {
+            return null;
+        }
+        else {
+            courant = fPokemons;
+            while (courant != null) {
+                if (courant.getNom().equals(nom)) {
                     return courant;
                 }
                 else {

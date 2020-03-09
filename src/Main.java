@@ -78,7 +78,21 @@ public class Main {
                         System.out.println(p.getEvolution().getNom());
                     }
                     break;
-
+                case 'r':
+                    System.out.println("Entrer le nom: ");
+                    nom = scan.next();
+                    p = dex.rechercherNom(nom);
+                    if (p == null) {
+                        System.out.println("Aucun pokemon");
+                    }
+                    else {
+                        System.out.println(p.toString());
+                    }
+                    break;
+                case 't':
+                    System.out.println("Entrer le type");
+                    type = scan.next();
+                    dex.afficherType(type);
                 case 'q':
                     System.out.println("Gotta catch them all!");
                     break;
