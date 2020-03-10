@@ -11,6 +11,7 @@ public class Main {
                 "e #: voir l'evolution d'un pokemon \n" +
                 "r <nom>: rechercher par nom \n" +
                 "t <type>: rechercher par type \n" +
+                "f <nom>: afficher les faiblesses d'un pokemon \n" +
                 "q: quitter");
     }
 
@@ -36,7 +37,6 @@ public class Main {
                 case 'p':
                     dex.afficher(System.out); // System.out c'est un objet, donc on peut le passer en parametre!
                     break;
-
                 case 'a':
                     System.out.print("Entrez son nom: ");
                     nom = scan.next();
@@ -96,7 +96,17 @@ public class Main {
                 case 'q':
                     System.out.println("Gotta catch them all!");
                     break;
-
+                case 'f':
+                    System.out.println("Entrez le nom du pokemon");
+                    nom = scan.next();
+                    p = dex.rechercherNom(nom);
+                    if (p != null) {
+                        p.getFaiblesse();
+                    }
+                    else {
+                        System.out.println("Pokemon non-valide");
+                    }
+                    break;
                 default:
                     System.err.println("Option invalide: " + requete);
                     scan.nextLine(); // Reset l'entree.

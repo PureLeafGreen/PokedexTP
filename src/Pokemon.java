@@ -48,6 +48,11 @@ public class Pokemon {
         return TableType.getType(type2);
     }
 
+    public int[] getFaiblesse() {
+       int[] fb1 = TableType.getFaiblesses(type1);
+       return fb1;
+    }
+
     public void setEvolution(Pokemon evolution) {
         this.evolution = evolution;
     }
