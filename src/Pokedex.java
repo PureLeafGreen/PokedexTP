@@ -29,14 +29,15 @@ public class Pokedex {
         if (fPokemons == null) {
             System.out.println("Aucun pokemons dans le pokedex");
         }
-        courant = fPokemons;
-        while (courant != null) {
-            if (courant.getType1().equals(type) || courant.getType2().equals(type)) {
-                System.out.println(courant.toString() + "");
-                courant = courant.getNexte();
-            }
-            else {
-                courant = courant.getNexte();
+        else {
+            courant = fPokemons;
+            while (courant != null) {
+                if (courant.getType1().equals(type) || courant.getType2().equals(type)) {
+                    System.out.println(courant.toString() + "");
+                    courant = courant.getNexte();
+                } else {
+                    courant = courant.getNexte();
+                }
             }
         }
     }

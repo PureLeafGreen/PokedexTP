@@ -70,12 +70,17 @@ public class Main {
                     System.out.print("Entrez son numero: ");
                     numero = scan.nextInt();
                     p = dex.rechercher(numero);
-                    System.out.print(p.getNom() + " evolue en ");
-                    if (p.getEvolution() == null ) {
-                        System.out.println("???");
+                    if (p != null) {
+                        System.out.print(p.getNom() + " evolue en ");
+                        if (p.getEvolution() == null) {
+                            System.out.println("???");
+                        }
+                        else {
+                            System.out.println(p.getEvolution().getNom());
+                        }
                     }
                     else {
-                        System.out.println(p.getEvolution().getNom());
+                        System.out.println("Pokemon invalide");
                     }
                     break;
                 case 'r':
@@ -93,6 +98,7 @@ public class Main {
                     System.out.println("Entrer le type");
                     type = scan.next();
                     dex.afficherType(type);
+                    break;
                 case 'q':
                     System.out.println("Gotta catch them all!");
                     break;
@@ -101,7 +107,7 @@ public class Main {
                     nom = scan.next();
                     p = dex.rechercherNom(nom);
                     if (p != null) {
-                        p.getFaiblesse();
+                        System.out.println(p.getFaiblesse() + "");
                     }
                     else {
                         System.out.println("Pokemon non-valide");

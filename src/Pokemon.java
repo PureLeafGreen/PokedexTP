@@ -48,9 +48,18 @@ public class Pokemon {
         return TableType.getType(type2);
     }
 
-    public int[] getFaiblesse() {
-       int[] fb1 = TableType.getFaiblesses(type1);
-       return fb1;
+    public String getFaiblesse() {
+       int[] faiblesse1 = TableType.getFaiblesses(type1);
+       int[] faiblesse2 = TableType.getFaiblesses(type2);
+       String TypeFb1 = "Faiblesses du premier type:\n";
+       String TypeFb2 = "Faiblesses du second type\n";
+       for (int i = 0; i < faiblesse1.length; i++) {
+           TypeFb1 += TableType.getType(faiblesse1[i]) + " ";
+       }
+       for (int i = 0; i < faiblesse2.length; i++) {
+            TypeFb2 += TableType.getType(faiblesse2[i]) + " ";
+       }
+       return TypeFb1 +"\n"+ TypeFb2;
     }
 
     public void setEvolution(Pokemon evolution) {
